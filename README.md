@@ -18,12 +18,13 @@ A Streamlit app that answers user questions with a Wikipedia-backed retrieval an
 - `data/` - Cached documents, embeddings, and FAISS index files.
 - `models/` - Saved classifier and vectorizer artifacts.
 
-## Requirements
-
-- Python 3.10 or newer
-- A working virtual environment
-
 ## Setup
+
+Setup virtual environment (optional):
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
 
 Install dependencies:
 
@@ -31,11 +32,12 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Build the local models and retrieval index:
+Scrape wikipedia documents, build retriever and classifier:
 
 ```bash
-python classifier.py
+python scraper.py
 python retriever.py
+python classifier.py
 ```
 
 ## Run the app
