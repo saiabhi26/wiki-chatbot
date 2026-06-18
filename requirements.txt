@@ -1,0 +1,9 @@
+wikipedia-api
+sentence-transformers
+transformers
+torch
+faiss-cpu
+streamlit
+scikit-learn
+numpy
+pandas
