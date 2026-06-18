@@ -12,6 +12,7 @@ A Streamlit app that answers user questions with a Wikipedia-backed retrieval an
 ## Project structure
 
 - `app.py` - Streamlit UI and request routing.
+- `scraper.py` - Wikipedia documents scraper.
 - `classifier.py` - Intent classifier for chit-chat vs. knowledge questions.
 - `retriever.py` - Document embedding and FAISS retrieval.
 - `summarizer.py` - Answer generation and simple conversational replies.
