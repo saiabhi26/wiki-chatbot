@@ -2,7 +2,7 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration
 
 ANSWER_MODEL = "google/flan-t5-base"
 
-def load_summarizer():
+def load_generator():
     tokenizer = T5Tokenizer.from_pretrained(ANSWER_MODEL)
     model = T5ForConditionalGeneration.from_pretrained(ANSWER_MODEL)
     return tokenizer, model
