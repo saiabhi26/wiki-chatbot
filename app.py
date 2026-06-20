@@ -8,7 +8,7 @@ os.environ['MKL_NUM_THREADS'] = '1'
 import streamlit as st
 from classifier import load_classifier, classify
 from retriever import load_retriever, retrieve
-from summarizer import load_summarizer, generate_answer, chit_chat_response
+from generator import load_summarizer, generate_answer, chit_chat_response
 
 st.set_page_config(page_title="Wiki Chatbot", page_icon="🤖", layout="centered")
 st.title("🤖 Wikipedia Chatbot")
