@@ -73,7 +73,7 @@ def load_classifier():
     embed_model = SentenceTransformer(EMBED_MODEL)
     return clf, embed_model
 
-def classify(query, clf, vectorizer):
+def classify(query, clf, embed_model):
     X = embed_model.encode([query])  
     return clf.predict(X)[0]  # "chit-chat" or "knowledge"
 
