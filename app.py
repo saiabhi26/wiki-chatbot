@@ -16,10 +16,10 @@ st.title("🤖 Wikipedia Chatbot")
 # Load all models once and cache them
 @st.cache_resource
 def load_all_models():
-    clf, vectorizer = load_classifier()
+    clf, embed_model = load_classifier()
     retrieval_model, index, texts = load_retriever()
     summarizer = load_summarizer()
-    return clf, vectorizer, retrieval_model, index, texts, summarizer
+    return clf, embed_model, retrieval_model, index, texts, summarizer
 
 # Check index exists before loading
 if not os.path.exists("data/faiss_index.bin"):
@@ -27,7 +27,7 @@ if not os.path.exists("data/faiss_index.bin"):
     st.stop()
 
 with st.spinner("Loading models..."):
-    clf, vectorizer, retrieval_model, index, texts, summarizer = load_all_models()
+    clf, embed_model, retrieval_model, index, texts, summarizer = load_all_models()
 
 # Chat history
 if "messages" not in st.session_state:
@@ -44,7 +44,7 @@ if prompt := st.chat_input("Ask me anything..."):
 
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            intent = classify(prompt, clf, vectorizer)
+            intent = classify(prompt, clf, embed_model)
 
             if intent == "chit-chat":
                 response = chit_chat_response(prompt)
